@@ -9,14 +9,81 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ImageView
+        android:id="@+id/ivDownload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:contentDescription="@string/download_image_description"
+        android:src="@drawable/ic_baseline_cloud_download_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rgDownloadOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/large_margin"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginBottom="@dimen/large_margin"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivDownload">
+
+        <RadioButton
+            android:id="@+id/rbGlide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/glide_option"
+            android:textSize="@dimen/default_text_size"
+            android:layout_marginBottom="@dimen/medium_margin"/>
+
+        <RadioButton
+            android:id="@+id/rbLoadApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/load_app_option"
+            android:textSize="@dimen/default_text_size"
+            android:layout_marginBottom="@dimen/medium_margin"/>
+
+        <RadioButton
+            android:id="@+id/rbRetrofit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retrofit_option"
+            android:textSize="@dimen/default_text_size"
+            android:layout_marginBottom="@dimen/medium_margin"/>
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/etEnterUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:hint="@string/enter_valid_url_to_download"
+        android:inputType="textUri"
+        app:layout_constraintBottom_toTopOf="@+id/custom_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgDownloadOptions" />
+
     <com.udacity.LoadingButton
         android:id="@+id/custom_button"
         android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_height="60dp"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/medium_margin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:buttonColor="@color/colorPrimary"
+        app:loadingButtonColor="@color/colorPrimaryDark"
+        app:circleColor="@color/colorAccent"
+        app:textColor="@color/white"
+        app:buttonText="@string/button_text_download"
+        app:loadingText="@string/button_loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
